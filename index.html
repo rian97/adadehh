@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="Style.css" />
+    <title>Do you love me?</title>
+</head>
+<body>
+
+<div class="question-container container">
+<video class="local-gif" src="2.mp4" autoplay muted loop></video>
+  <h2 class="question">Will u be my gf kayy?</h2>
+  <div class="button-container">
+    <button class="yes-btn btn js-yes-btn">mauu</button>
+    <button class="no-btn btn js-no-btn">endaa</button>
+  </div>
+</div>
+<div class="result-container container">
+  <video class="gif-result" src="1.mp4" autoplay loop></video>
+  <h2>Yeyyyyyyyyy</h2>
+</div>
+
+<div class="cssload-main">
+  <div class="cssload-heart">
+    <span class="cssload-heartL"></span>
+    <span class="cssload-heartR"></span>
+    <span class="cssload-square"></span>
+  </div>
+  <div class="cssload-shadow"></div>
+</div>
+
+<!-- Elemen audio dengan kontrol manual sebagai fallback -->
+<audio id="bg-music" loop>
+  <source src="pilihanku.mp3" type="audio/mpeg">
+  Browser kamu tidak mendukung audio.
+</audio>
+<button id="play-btn" style="display: none; position: fixed; top: 10px; right: 10px; z-index: 1000;">Play Music</button>
+
+<script src="script .js"></script>
+
+<!-- Script tambahan untuk handling autoplay -->
+<script>
+  const audio = document.getElementById('bg-music');
+  const playBtn = document.getElementById('play-btn');
+
+  // Coba autoplay saat halaman dimuat
+  audio.play().then(() => {
+    console.log('Audio autoplay berhasil!');
+  }).catch(() => {
+    console.log('Autoplay diblokir, tampilkan tombol play.');
+    playBtn.style.display = 'block'; // Tampilkan tombol jika autoplay gagal
+  });
+
+  // Fungsi untuk tombol play manual
+  playBtn.addEventListener('click', () => {
+    audio.play();
+    playBtn.style.display = 'none'; // Sembunyikan tombol setelah play
+  });
+</script>
+
+</body>
+</html>
